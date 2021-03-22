@@ -24,18 +24,18 @@ int main()
 {
     int limit, count, temp_process, time, j, y;
     process_structure temp;
-    printf("Enter Total Number of Processes:\t");
+    printf("Enter Total Number of Processes : ");
     scanf("%d", &limit);
     process_structure process[limit];
     for (count = 0; count < limit; count++)
     {
-        printf("\nProcess ID:\t");
-        scanf("%d", &process[count].process_id);
-        printf("Arrival Time:\t");
+        process[count].process_id = count+1;
+        printf("Process : %d\n",count+1);
+        printf("Arrival Time : ");
         scanf("%d", &process[count].arrival_time);
-        printf("Burst Time:\t");
+        printf("Burst Time : ");
         scanf("%d", &process[count].burst_time);
-        printf("Process Priority:\t");
+        printf("Process Priority : ");
         scanf("%d", &process[count].priority);
         temp_process = process[count].priority;
         process[count].q = Queue(temp_process);
@@ -88,7 +88,7 @@ int main()
                 }
             }
         }
-        printf("\nProcess[%d]:\tTime:\t%d To %d\n", process[y].process_id, time, time + process[y].burst_time);
+        printf("\nProcess[%d] will run from Time %d To %d\n", process[y].process_id, time, time + process[y].burst_time);
         time = time + process[y].burst_time;
         for (count = y; count < limit; count++)
         {

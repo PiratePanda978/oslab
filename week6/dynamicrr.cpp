@@ -49,6 +49,10 @@ int main()
             processes++;
         else
             processes = 0;
+        for(i=processes;i<n;i++){
+            quantum+=bt[i];
+        }
+        quantum = quantum*1.0/unfinished;
     }
     cout << "\nAverage Waiting Time = " << (wait_time * 1.0 / n) << endl;
     cout << "Avg Turnaround Time = " << (turnaround_time * 1.0 / n) << endl;
