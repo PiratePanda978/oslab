@@ -195,7 +195,7 @@ int main()
     int counterfcfs = 0;
     while (notComplete(q))
     {
-        if (timer == 15)
+        if (timer == 10||timer == 6||timer == 4)
         {
             timer = 0;
         }
@@ -243,12 +243,14 @@ int main()
                 }
                 while (rr_timer > 0 && q[l].p[i].burst_time != 0 && timer != 15)
                 {
+                    cout << "Executing queue 1 and "
+                         << "process " << i + 1 << " for a unit time \n";
                     q[l].p[i].burst_time--;
                     checkCompleteTimer(q);
                     rr_timer--;
                     timer++;
                 }
-                if (timer == 15)
+                if (timer == 10)
                 {
                     break;
                 }
@@ -284,7 +286,7 @@ int main()
         else if (l == 1)
         {
             cout << "Executing "
-                 << "Queue " << l + 1 << " with SJF approach\n";
+                 << "Queue " << l + 1 << " with shortest job first approach\n";
             sort_sjf(q[l]); //sorting queue according to burst time
             //SJF Scheduling(Non-preemptive)
             for (int i = 0; i < q[l].length; i++)
@@ -300,11 +302,12 @@ int main()
                 }
                 while (q[l].p[i].burst_time != 0 && timer != 15)
                 {
+                    cout << "Executing queue 2 and " << i + 1 << " process for a unit time. Process has priority of " << q[l].p[i].priority << "\n";
                     q[l].p[i].burst_time--;
                     checkCompleteTimer(q);
                     timer++;
                 }
-                if (timer == 15)
+                if (timer == 6)
                 {
                     break;
                 }
@@ -333,11 +336,12 @@ int main()
                 }
                 while (q[l].p[i].burst_time != 0 && timer != 15)
                 {
+                    cout << "Executing queue 3 and " << i + 1 << " process for a unit time. Process has priority of " << q[l].p[i].priority << "\n";
                     q[l].p[i].burst_time--;
                     checkCompleteTimer(q);
                     timer++;
                 }
-                if (timer == 15)
+                if (timer == 4)
                 {
                     break;
                 }
